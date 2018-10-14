@@ -9,7 +9,6 @@ To start the docker please type:
 ```docker run -d -p 8787:8787 -e PASSWORD=admin -e USER=admin #containerId#```
 
 ## DataSHIELD
-
 You need to install 2 R-packages to make you of DataSHIELD in RStudio.
 - Opal
 - DataSHIELD client
