@@ -23,12 +23,12 @@ pipeline {
                 }
             }
         }
-        stage('Test images') {
+        stage('Build [ master ]') {
             steps {
                 sh "echo Test ${ORG}/${APP_NAME} docker-image [ ${APP_NAME}:latest]"
             }
         }
-        stage('Publish images') {
+        stage('Release [ master ]') {
             steps {
                 container('maven') {
                     script {
