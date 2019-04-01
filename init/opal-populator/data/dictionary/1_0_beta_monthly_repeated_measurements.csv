@@ -1,0 +1,7 @@
+"row_id","integer","Participant","","numeric","","false","","row id"
+"child_id","integer","Participant","","numeric","","false","","child id"
+"cohort_id","integer","Participant","","numeric","","false","101=Gen R;102=INMA;103=NINFEA;104=SWS;105=ALSPAC;106=DNBC;107=BIB;108=GECKO;109=RHEA;110=MOBA;111=ELFE;112=EDEN;113=NFBC66;114=NFBC86;115=HBCS;116=CHOP;117=RAINE;118=RUG1;119=RUG2","cohort id"
+"coh_country","integer","Participant","","numeric","","false","","country id"
+"age_years","integer","Participant","","numeric","","false","","age of child in years"
+"edu_m_","integer","Participant","","numeric","","false","1=high;2=medium;3=low","maternal eduction"
+"smk_exp","integer","Participant","","numeric","","false","0=not exposed;1=exposed","exposure to passive smoke"

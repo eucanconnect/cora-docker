@@ -1,4 +1,4 @@
-FROM rocker/rstudio
+FROM rocker/rstudio:3.5.3
 
 RUN apt-get update
 RUN apt-get install -y libgsl0-dev zlib1g-dev libxml2-dev
