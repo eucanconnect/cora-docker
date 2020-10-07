@@ -1,6 +1,6 @@
-FROM python:2.7.9
+FROM python:3.5.10-slim-stretch
 
-ENV OPAL_PYTHON_CLIENT_VERSION=2.10.12
+ENV OPAL_PYTHON_CLIENT_VERSION=3.1.2
 
 ENV OPAL_ADMINISTRATOR_PASSWORD=opal
 
@@ -19,8 +19,10 @@ ENV MYSQLIDS_PORT_3306_TCP_PORT=3306
 ENV MYSQLDATA_PORT_3306_TCP_ADDR=localhost
 ENV MYSQLDATA_PORT_3306_TCP_PORT=3306
 
-RUN wget https://github.com/obiba/opal/releases/download/${OPAL_PYTHON_CLIENT_VERSION}/opal-python-client-${OPAL_PYTHON_CLIENT_VERSION}.tar.gz
+RUN apt-get update && apt-get install wget libcurl4-openssl-dev libssl-dev libblas-dev libatlas-base-dev -y
+RUN wget https://github.com/obiba/opal-python-client/releases/download/${OPAL_PYTHON_CLIENT_VERSION}/opal-python-client-${OPAL_PYTHON_CLIENT_VERSION}.tar.gz
 RUN tar -xvzf opal-python-client-${OPAL_PYTHON_CLIENT_VERSION}.tar.gz
+COPY opal-python-client/ez_setup.py opal-python-client-${OPAL_PYTHON_CLIENT_VERSION}
 RUN cd opal-python-client-${OPAL_PYTHON_CLIENT_VERSION} && python setup.py install --record installed_files.lst
 
 RUN mkdir -p /opt/opal/bin/
