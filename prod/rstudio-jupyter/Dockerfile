@@ -13,12 +13,16 @@ RUN apt-get update && \
     rm /tmp/rstudio.deb && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
+ENV DS_VERSION=6.0.1
+
 # Install Opal packages
 RUN R -e "install.packages('DSOpal', repos = 'https://cran.r-project.org', dependencies=TRUE)"
-# Install Opal administrator packages
+# Install Armadillo packages
 RUN R -e "install.packages('DSMolgenisArmadillo', repos=c('https://cran.r-project.org', 'http://registry.molgenis.org/repository/R'), dependencies=TRUE)"
 # Install DataSHIELD packages
-RUN R -e "install.packages('dsBaseClient', repos=c('https://cran.r-project.org', 'http://cran.obiba.org'), dependencies=TRUE)"
+RUN R -e "install.packages('remotes', repos=c('https://cran.r-project.org', 'http://cran.obiba.org'), dependencies=TRUE)"
+RUN R -e "library(remotes); install_github('datashield/dsBaseClient', ref = '${DS_VERSION}')"
+RUN R -e "library(remotes); install_github('lifecycle-project/ds-helper')"
 
 ENV PATH=$PATH:/usr/lib/rstudio-server/bin
 USER $NB_USER
