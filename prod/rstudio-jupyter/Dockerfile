@@ -13,7 +13,7 @@ RUN apt-get update && \
     rm /tmp/rstudio.deb && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-ENV DS_VERSION=6.0.1
+ENV DS_VERSION=6.1.0
 
 # Install Opal packages
 RUN R -e "install.packages('DSOpal', repos = 'https://cran.r-project.org', dependencies=TRUE)"
